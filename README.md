@@ -11,6 +11,10 @@ https://zenn.dev/grimm_marchen/articles/8d297bf7ea1127 を参考にした。
 module.exports = {
   // purge: [],　
   purge: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],  
+4 index.cssに  
+@tailwind base;  
+@tailwind components;  
+@tailwind utilities；を記載した。
 
 # 実行した環境
 node.js version@14.15.5
