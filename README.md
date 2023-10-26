@@ -1,6 +1,8 @@
 # 環境構築のために行ったこと
-1 npm init  -y vite-app envader-practice
-2 npm install
+1 npm init  -y vite-app envader-practice  
+2 npm install  
+3 npm run dev  
+
 
 # 実行した環境
 node.js version@14.15.5
