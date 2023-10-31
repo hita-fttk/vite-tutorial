@@ -22,7 +22,8 @@ const deleteTweet = (id:number) =>{
       <button class="save-button" @click="postTweet">post</button>
     </div>
     <div class="tweet-container">
-      <ul>
+      <p v-if="tweets.length <= 0">No Tweet have been added</p>
+      <ul v-else>
         <li v-for="tweet in tweets" :key="tweet.id" class="tweet-list">
           <span>{{ tweet.description }}</span>
           <button class="delete-button" @click="deleteTweet(tweet.id)" >delete</button>
