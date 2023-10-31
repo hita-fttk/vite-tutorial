@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref,defineEmits } from 'vue'
 const inputtingDescription = ref<string>('')
 const postTweet = ()=>{
-
+    emit('post-tweet',inputtingDescription)
 }
+
+const emit = defineEmits(['post-tweet'])
 
 </script>
 

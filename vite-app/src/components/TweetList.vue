@@ -14,8 +14,11 @@ defineProps<Props>()
 // const tweets:any =[]
 
 const deleteTweet = (id:number) =>{
-    console.log('delete');
+    emit('delete-tweet',id)
 }
+
+const emit = defineEmits(['delete-tweet'])
+
 </script>
 
 <template>
