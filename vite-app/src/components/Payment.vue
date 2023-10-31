@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import { ref,reactive,computed } from 'vue';
+import { ref,reactive,computed,watch } from 'vue';
 // const itemName1 = ref<String>('Desk')
 const itemName2:string = 'Bike'
 
@@ -53,7 +53,7 @@ const priceLabel = computed(()=>{
         <button v-on:click="clear">Clear</button>
         <div class="payment">
             <label>{{ item1.name }}</label>
-            <label>{{ priceLabel }} yen</label>
+            <label>{{ priceLabel }}</label>
             <a v-bind:href="url1">bought at...</a>
             <button v-on:click="buy(item1.name)">BUY</button>
         </div>
