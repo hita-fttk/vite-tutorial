@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import TweetPostForm from './TweetPostForm.vue';
+import TweetList from './TweetList.vue';
 const tweets = ref([{id:0,description:'Hello world!'},{id:1,description:'this is second tweet'}])
-const inputtingDescription = ref<string>('')
-const postTweet = () =>{
-  const tweet = { id: Math.random(),description: inputtingDescription.value }
+// const inputtingDescription = ref<string>('')
+const postTweet = (description:string) =>{
+  const tweet = { id: Math.random(),description: description }
   tweets.value.push(tweet)
-  inputtingDescription.value = ''
+  // inputtingDescription.value = ''
   console.log(tweets.value);
   
 }
@@ -17,17 +19,17 @@ const deleteTweet = (id:number) =>{
 <template>
   <div class="container">
     <h1>Tweeter</h1>
-    <div class="form-container">
-      <input v-model="inputtingDescription" type="text">
-      <button class="save-button" @click="postTweet">post</button>
-    </div>
+      <TweetPostForm @post-tweet="postTweet"/>
+      <!-- <input v-model="inputtingDescription" type="text">
+      <button class="save-button" @click="postTweet">post</button> -->
     <div class="tweet-container">
       <p v-if="tweets.length <= 0">No Tweet have been added</p>
       <ul v-else>
-        <li v-for="tweet in tweets" :key="tweet.id" class="tweet-list">
+        <TweetList :tweets="tweets" @delete-tweet="deleteTweet"/>
+        <!-- <li v-for="tweet in tweets" :key="tweet.id" class="tweet-list">
           <span>{{ tweet.description }}</span>
           <button class="delete-button" @click="deleteTweet(tweet.id)" >delete</button>
-        </li>
+        </li> -->
       </ul>
     </div>
   </div>
@@ -65,7 +67,7 @@ input{
   margin-top: 16px;
   padding: 2px;
 }
-.save-button{
+/* .save-button{
   background-color: aquamarine;
   border: 1px solid;
   border-radius: 2px;
@@ -73,19 +75,19 @@ input{
   padding: 4px 16px;
   color: azure;
   font-weight: bold;
-}
+} */
 
-.save-button:hover{
+/* .save-button:hover{
   background-color: rgb(5, 250, 169);
-}
-.delete-button{
+} */
+/* .delete-button{
   margin-left: 20px;
   border: 2px solid;
   border-radius: 4px;
   background-color: brown;
   color: azure;
   padding: 4px;
-}
+} */
 
 .delete-button:hover{
   background-color: #ee0f0f;
