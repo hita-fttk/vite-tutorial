@@ -9,6 +9,9 @@ const postTweet = () =>{
   console.log(tweets.value);
   
 }
+const deleteTweet = (id:number) =>{
+  tweets.value = tweets.value.filter((t) => t.id != id)  
+}
 </script>
 
 <template>
@@ -16,12 +19,13 @@ const postTweet = () =>{
     <h1>Tweeter</h1>
     <div class="form-container">
       <input v-model="inputtingDescription" type="text">
-      <button @click="postTweet">post</button>
+      <button class="save-button" @click="postTweet">post</button>
     </div>
     <div class="tweet-container">
       <ul>
         <li v-for="tweet in tweets" :key="tweet.id" class="tweet-list">
           <span>{{ tweet.description }}</span>
+          <button class="delete-button" @click="deleteTweet(tweet.id)" >delete</button>
         </li>
       </ul>
     </div>
@@ -58,8 +62,9 @@ h1{
 input{
   border: 1px solid;
   margin-top: 16px;
+  padding: 2px;
 }
-button{
+.save-button{
   background-color: aquamarine;
   border: 1px solid;
   border-radius: 2px;
@@ -67,6 +72,22 @@ button{
   padding: 4px 16px;
   color: azure;
   font-weight: bold;
+}
+
+.save-button:hover{
+  background-color: rgb(5, 250, 169);
+}
+.delete-button{
+  margin-left: 20px;
+  border: 2px solid;
+  border-radius: 4px;
+  background-color: brown;
+  color: azure;
+  padding: 4px;
+}
+
+.delete-button:hover{
+  background-color: #ee0f0f;
 }
 .tweet-list{
   list-style: none;
@@ -77,6 +98,7 @@ button{
   justify-content: space-between;
   background-color: antiquewhite;
   padding: 8px 20px;
-  width: 200px;
+  align-items: center;
+  
 }
 </style>
