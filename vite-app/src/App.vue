@@ -1,15 +1,22 @@
 <template>
-  <img class="m-auto" alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3.0 + Vite" />
+  <Payment />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from './components/HelloWorld.vue';
+import Payment from './components/Payment.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    HelloWorld,
+    Payment
+}
 }
 </script>
+<style>
+.label{
+  font-size:400px;
+}
+
+</style>
