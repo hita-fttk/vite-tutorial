@@ -1,13 +1,22 @@
 <script setup lang="ts">
-const tweets = [{id:'0',description:'Hello world!'},{id:'1',description:'this is second tweet'}]
+import { ref } from 'vue'
+const tweets = ref([{id:0,description:'Hello world!'},{id:1,description:'this is second tweet'}])
+const inputtingDescription = ref<string>('')
+const postTweet = () =>{
+  const tweet = { id: Math.random(),description: inputtingDescription.value }
+  tweets.value.push(tweet)
+  inputtingDescription.value = ''
+  console.log(tweets.value);
+  
+}
 </script>
 
 <template>
   <div class="container">
     <h1>Tweeter</h1>
     <div class="form-container">
-      <input type="text">
-      <button>post</button>
+      <input v-model="inputtingDescription" type="text">
+      <button @click="postTweet">post</button>
     </div>
     <div class="tweet-container">
       <ul>
@@ -61,5 +70,13 @@ button{
 }
 .tweet-list{
   list-style: none;
+  margin: 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  background-color: antiquewhite;
+  padding: 8px 20px;
+  width: 200px;
 }
 </style>
