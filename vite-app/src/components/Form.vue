@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { DirectiveBinding, ref } from 'vue';
+import { DirectiveBinding, ref, watch } from 'vue';
 const vFocus = {
   mounted: (el:HTMLElement,binding:DirectiveBinding)=>{
     el.focus()
@@ -10,11 +10,19 @@ const vFocus = {
   }}
 
 const userName = ref<string>('');
+const from = ref<string>('Japan');
+const interest = ref([]);
 
 const onSubmit = ()=>{
   console.log(userName.value);
+  console.log(from.value);
   console.log('submit');
 }
+watch(interest,()=>{
+  console.log(interest.value);
+  
+})
+
 
 </script>
 
@@ -30,7 +38,7 @@ const onSubmit = ()=>{
     </div>
     <div class="form-control">
       <label for="from">Where Are you from?</label>
-      <select id="from" name="from">
+      <select id="from" name="from" v-model="from">
         <option value="japan">Japan</option>
         <option value="china">China</option>
         <option value="others">Others</option>
@@ -39,15 +47,15 @@ const onSubmit = ()=>{
     <div class="form-control">
       <h2>What are you interested in?</h2>
       <div>
-        <input id="interest-react" name="interest" type="checkbox" />
+        <input v-model="interest" id="interest-react" name="interest" type="checkbox" />
         <label for="interest-react">React.js</label>
       </div>
       <div>
-        <input id="interest-vue" name="interest" type="checkbox" />
+        <input v-model="interest" id="interest-vue" name="interest" type="checkbox" />
         <label for="interest-vue">Vue.js</label>
       </div>
       <div>
-        <input id="interest-angular" name="interest" type="checkbox" />
+        <input v-model="interest" id="interest-angular" name="interest" type="checkbox" />
         <label for="interest-angular">Angular.js</label>
       </div>
     </div>
