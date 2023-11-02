@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-
+import { onMounted, ref } from 'vue';
+import axios from 'axios';
 const vFocus = {
   mounted: (el: HTMLElement) => {
     el.focus()
@@ -9,9 +9,30 @@ const vFocus = {
 
 const userName = ref<string>('')
 const interest = ref([])
+const data = ref()
+const isLoading = ref<boolean>(true)
+
+onMounted(async ()=>{
+  data.value = await axios.get('https://vite-tutorial-default-rtdb.firebaseio.com/surveys.json');
+  isLoading.value = false
+  console.log('data is ',data.value);
+})
 
 const onSubmit = (e: Event) => {
-  
+  // fetch('https://vite-tutorial-default-rtdb.firebaseio.com/surveys.json',{
+  //   method: 'POST',
+  //   headers:{
+  //     'Content-Type':'application/json'
+  //   },
+  //   body:JSON.stringify({name:userName.value,interest:interest.value})
+  // })
+  axios.post('https://vite-tutorial-default-rtdb.firebaseio.com/surveys.json',
+  {
+    name:userName.value,
+    interest:interest.value,
+  }
+  )
+  userName.value = ''
   interest.value = []
 }
 
@@ -44,6 +65,10 @@ const onSubmit = (e: Event) => {
         />
         <label for="interest-angular">Angular.js</label>
       </div>
+    </div>
+    <div v-if="isLoading">Loading...</div>
+    <div>
+      {{ data }}
     </div>
     <div>
       <button @click.prevent="onSubmit">Save Data</button>
