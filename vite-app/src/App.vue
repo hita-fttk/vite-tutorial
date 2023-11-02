@@ -1,5 +1,5 @@
 <template>
-  <Persons />
+  <Form />
 </template>
 
 <script>
@@ -8,6 +8,7 @@ import Payment from './components/Payment.vue';
 import Tweet from './components/Tweet.vue';
 import Memo from './components/Memo.vue';
 import Persons from './components/Persons.vue';
+import Form from './components/Form.vue';
 
 export default {
   name: 'App',
@@ -16,7 +17,8 @@ export default {
     Payment,
     Tweet,
     Memo,
-    Persons
+    Persons,
+    Form
 }
 }
 </script>
