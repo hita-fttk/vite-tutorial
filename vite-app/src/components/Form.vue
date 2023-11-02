@@ -1,8 +1,12 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { DirectiveBinding, ref } from 'vue';
 const vFocus = {
-  mounted: (el:HTMLElement)=>{
+  mounted: (el:HTMLElement,binding:DirectiveBinding)=>{
     el.focus()
+
+    if(binding.modifiers.alert){
+      el.style.backgroundColor = 'red'
+    }
   }}
 
 const userName = ref<string>('');
@@ -18,7 +22,7 @@ const onSubmit = ()=>{
   <form>
     <div class="form-control">
       <label for="user-name">Your Name</label>
-      <input v-focus v-model="userName" id="user-name" name="user-name" type="text" />
+      <input v-focus.alert v-model="userName" id="user-name" name="user-name" type="text" />
     </div>
     <div class="form-control">
       <label for="age">Your Age</label>
