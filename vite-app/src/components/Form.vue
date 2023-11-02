@@ -5,7 +5,7 @@ const vFocus = {
     el.focus()
 
     if(binding.modifiers.alert){
-      el.style.backgroundColor = 'red'
+      el.style.backgroundColor = 'pink'
     }
   }}
 
