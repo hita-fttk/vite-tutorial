@@ -1,12 +1,15 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 const vFocus = {
   mounted: (el:HTMLElement)=>{
     el.focus()
   }}
 
+const userName = ref<string>('');
 
-const arrow = ()=> {
-  console.log('aaa');
+const onSubmit = ()=>{
+  console.log(userName.value);
+  console.log('submit');
 }
 
 </script>
@@ -15,7 +18,7 @@ const arrow = ()=> {
   <form>
     <div class="form-control">
       <label for="user-name">Your Name</label>
-      <input v-focus id="user-name" name="user-name" type="text" />
+      <input v-focus v-model="userName" id="user-name" name="user-name" type="text" />
     </div>
     <div class="form-control">
       <label for="age">Your Age</label>
@@ -60,7 +63,7 @@ const arrow = ()=> {
       </div>
     </div>
     <div>
-      <button>Save Data</button>
+      <button @click.prevent="onSubmit">Save Data</button>
     </div>
   </form>
 </template>
