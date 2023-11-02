@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { DirectiveBinding, ref, watch } from 'vue';
+import Rating from './Rating.vue';
+
 const vFocus = {
   mounted: (el:HTMLElement,binding:DirectiveBinding)=>{
     el.focus()
@@ -12,10 +14,13 @@ const vFocus = {
 const userName = ref<string>('');
 const from = ref<string>('Japan');
 const interest = ref([]);
+const ratings = ref<string>('')
 
 const onSubmit = ()=>{
   console.log(userName.value);
   console.log(from.value);
+  console.log(ratings.value);
+  
   console.log('submit');
 }
 watch(interest,()=>{
@@ -73,6 +78,9 @@ watch(interest,()=>{
         <input id="how-other" name="how" type="radio" />
         <label for="how-other">Other</label>
       </div>
+    </div>
+    <div>
+      <Rating v-model="ratings" />
     </div>
     <div>
       <button @click.prevent="onSubmit">Save Data</button>
