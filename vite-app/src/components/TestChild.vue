@@ -1,7 +1,19 @@
 <script setup lang="ts">
 import { ref } from 'vue';
     const hoge = ref<string>('aaa');
+    const fugo = ref<string>('');
     const hogehoge = ref<string>('');
+    const inputtingTitle =ref<string>('');
+
+    const emit = defineEmits(['register'])
+
+    const register = ()=>{
+        const memo = {id:Math.random(),title:inputtingTitle.value}
+        console.log(memo);
+    
+        emit('register',memo)
+    }
+
 </script>
 
 <template>
@@ -20,13 +32,12 @@ import { ref } from 'vue';
             <input class="input-one" type="text" v-model="hogehoge">
             <button>BOTTON</button>
         </div>
-            <div>uuu</div>
+            <div>{{ inputtingTitle }}</div>
                <div class="input-box3">
-                    <div>{{ hoge }}</div>
-                    <span class="labeling">bbb</span>
-                    <input class="input-one" type="text">
+                    <span class="labeling">title:</span>
+                    <input class="input-one" type="text" v-model="inputtingTitle">
                 </div>
-        <button>Push</button>
+        <button @click="register">Push</button>
     </div>
 </template>
 
@@ -42,9 +53,10 @@ import { ref } from 'vue';
         flex-direction: column;
     }
     .input-box1{
-        border: 2px solid blue;
+        border: 1px solid blue;
         width: 50%;
         margin: 12px;
+        padding-left: 8px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -88,7 +100,7 @@ import { ref } from 'vue';
         border-radius: 2px;
         margin: 20px;
     }
-    .labeling{
+    /* .labeling{
         float: left;
-    }
+    } */
 </style>

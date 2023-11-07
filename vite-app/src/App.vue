@@ -1,5 +1,5 @@
 <template>
-  <TestComponent />
+  <TestChild />
 </template>
 
 <script>
@@ -11,6 +11,7 @@ import Persons from './components/Persons.vue';
 import Form from './components/Form.vue';
 import testCoomponent from './components/testComponent.vue';
 import TestComponent from './components/testComponent.vue';
+import TestChild from './components/TestChild.vue';
 
 export default {
   name: 'App',
@@ -21,7 +22,8 @@ export default {
     Memo,
     Persons,
     Form,
-    TestComponent
+    TestComponent,
+    TestChild
 }
 }
 </script>
