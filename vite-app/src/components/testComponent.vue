@@ -6,22 +6,26 @@ import { ref } from 'vue';
 <template>
     <h1>コンポーネントのテストページ</h1>
     <h2>{{ hoge }}</h2>
+    <span>{{ hoge }}</span>
+    <span>{{ hoge }}</span>
+    <input type="text" value="ccc">
     <div class="input-container">
         <span>{{ hoge }}</span>
-        <div class="input-box">
+        <div class="input-box1">
             <input class="input-one" type="text">
             <input class="input-two" type="text">
         </div>
         <span>{{ hoge }}</span>
-        <div class="input-box">
+        <div class="input-box2">
             <input class="input-one" type="text">
-            <input class="input-two" type="text">
+
         </div>
-        <div class="input-box">
+        <div class="input-box3">
             {{ hoge }}
+            <span class="labeling">bbb</span>
             <input class="input-one" type="text">
-            <input class="input-two" type="text">
         </div>
+        <button>Push</button>
     </div>
 </template>
 
@@ -31,12 +35,12 @@ import { ref } from 'vue';
         border: 2px solid red; 
         display: flex;
         justify-content: center;
-        height: 500px;
+        height: 50%;
         background-color: bisque;
         align-items:center;
         flex-direction: column;
     }
-    .input-box{
+    .input-box1{
         border: 2px solid blue;
         width: 50%;
         margin: 12px;
@@ -45,7 +49,26 @@ import { ref } from 'vue';
         align-items: center;
         background-color: aquamarine;
         
-
+    }
+    .input-box2{
+        border: 2px solid blue;
+        width: 40%;
+        margin: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: aquamarine;
+        
+    }
+    .input-box3{
+        border: 2px solid blue;
+        width: 30%;
+        margin: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: aquamarine;
+        
     }
     .input-one{
         border: 1px solid green;
@@ -56,5 +79,13 @@ import { ref } from 'vue';
     .input-two{
         margin-bottom: 12px;
         padding: 4px;
+    }
+    button{
+        border: 2px solid darkseagreen;
+        border-radius: 2px;
+        margin-bottom: 4px;
+    }
+    .labeling{
+        float: left;
     }
 </style>
