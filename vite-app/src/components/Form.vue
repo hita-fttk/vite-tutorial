@@ -10,10 +10,17 @@ const vFocus = {
 const userName = ref<string>('')
 const interest = ref([])
 const data = ref()
-const isLoading = ref<boolean>(true)
+const isLoading = ref<boolean>(false)
+const err = ref()
 
 onMounted(async ()=>{
-  data.value = await axios.get('https://vite-tutorial-default-rtdb.firebaseio.com/surveys.json');
+  isLoading.value = true
+  try{
+    data.value = await axios.get('https://vite-tutorial-default-rtdb.firebaseio.com/surveys.json');
+  } catch (e) {
+    console.log(Boolean(err));
+    err.value = new Error('エラーが発生しました')
+  }
   isLoading.value = false
   console.log('data is ',data.value);
 })
@@ -66,6 +73,7 @@ const onSubmit = (e: Event) => {
         <label for="interest-angular">Angular.js</label>
       </div>
     </div>
+    <div v-if="err">{{ err }}</div>
     <div v-if="isLoading">Loading...</div>
     <div>
       {{ data }}
