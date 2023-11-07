@@ -15,16 +15,17 @@ import { ref } from 'vue';
             <input class="input-one" type="text">
             <input class="input-two" type="text">
         </div>
-        <span>{{ hoge }}</span>
         <div class="input-box2">
+            <div>{{ hoge }}</div>
             <input class="input-one" type="text">
-
+            <button>BOTTON</button>
         </div>
-        <div class="input-box3">
-            {{ hoge }}
-            <span class="labeling">bbb</span>
-            <input class="input-one" type="text">
-        </div>
+            <div>uuu</div>
+               <div class="input-box3">
+                    <div>{{ hoge }}</div>
+                    <span class="labeling">bbb</span>
+                    <input class="input-one" type="text">
+                </div>
         <button>Push</button>
     </div>
 </template>
@@ -56,6 +57,7 @@ import { ref } from 'vue';
         margin: 12px;
         display: flex;
         justify-content: center;
+        flex-direction: column;
         align-items: center;
         background-color: aquamarine;
         
@@ -63,6 +65,7 @@ import { ref } from 'vue';
     .input-box3{
         border: 2px solid blue;
         width: 30%;
+        padding: 12px;
         margin: 12px;
         display: flex;
         justify-content: center;
@@ -83,7 +86,7 @@ import { ref } from 'vue';
     button{
         border: 2px solid darkseagreen;
         border-radius: 2px;
-        margin-bottom: 4px;
+        margin: 20px;
     }
     .labeling{
         float: left;
