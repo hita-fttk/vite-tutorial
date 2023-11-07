@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { ref } from 'vue';
     const hoge = ref<string>('aaa');
+    const hogehoge = ref<string>('');
 </script>
 
 <template>
     <h1>コンポーネントのテストページ</h1>
     <h2>{{ hoge }}</h2>
-    <span>{{ hoge }}</span>
-    <span>{{ hoge }}</span>
+    <span>{{ hogehoge }}</span>
     <input type="text" value="ccc">
     <div class="input-container">
         <span>{{ hoge }}</span>
@@ -17,7 +17,7 @@ import { ref } from 'vue';
         </div>
         <div class="input-box2">
             <div>{{ hoge }}</div>
-            <input class="input-one" type="text">
+            <input class="input-one" type="text" v-model="hogehoge">
             <button>BOTTON</button>
         </div>
             <div>uuu</div>
