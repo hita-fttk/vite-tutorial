@@ -1,5 +1,5 @@
 <template>
-  <Form />
+  <TestComponent />
 </template>
 
 <script>
@@ -9,6 +9,8 @@ import Tweet from './components/Tweet.vue';
 import Memo from './components/Memo.vue';
 import Persons from './components/Persons.vue';
 import Form from './components/Form.vue';
+import testCoomponent from './components/testComponent.vue';
+import TestComponent from './components/testComponent.vue';
 
 export default {
   name: 'App',
@@ -18,7 +20,8 @@ export default {
     Tweet,
     Memo,
     Persons,
-    Form
+    Form,
+    TestComponent
 }
 }
 </script>
