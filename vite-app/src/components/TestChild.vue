@@ -28,7 +28,7 @@ import { ref } from 'vue';
             <input class="input-two" type="text">
         </div>
         <div class="input-box2">
-            <div>{{ hoge }}</div>
+            <div>ToDoリストに追加</div>
             <input class="input-one" type="text" v-model="hogehoge">
             <button>BOTTON</button>
         </div>
