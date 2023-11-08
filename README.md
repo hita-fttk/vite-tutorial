@@ -17,5 +17,8 @@ module.exports = {
 @tailwind utilities；を記載した。
 
 # 実行した環境
-node.js version@14.15.5
+node.js version@14.15.5  
 npm version@6.14.11
+
+#学んだこと
+2023/11/8 refとRefの違い
